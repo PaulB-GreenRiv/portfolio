@@ -1,0 +1,60 @@
+.jumbotron {
+    text-align: center;
+}
+
+fieldset {
+    margin-bottom: 15px;
+    margin-top: 10px;
+    background-color: #96dfea;
+}
+
+form {
+    border-style: solid;
+    border-color: black;
+    border-radius: 3px;
+    background-color: darkgray;
+}
+
+.err {
+    color: red;
+    display: none;
+}
+
+body {
+    text-align: center;
+}
+
+li, p {
+    list-style-type: none;
+    font-size: 18px;
+}
+
+h2 {
+    float: left;
+    margin-left: 33%;
+}
+
+section {
+    clear: left;
+    margin-bottom: 2%;
+}
+
+div {
+    display: block;
+    border: blue;
+    border-style: solid;
+    border-radius: 10px;
+}
+
+#contactInfo, #educ, #summary, #exp, #skills {
+    width: 100%;
+    float: left;
+    align-content: center;
+}
+
+#contactInfo p {
+    float: left;
+    font-size: 20px;
+    margin-left: 10%;
+    align-content: center;
+}

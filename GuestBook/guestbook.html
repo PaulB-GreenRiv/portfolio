@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="styles.css">
+    <link href="bookIcon.png" type="image/png" rel="icon"/>
+
+    <title>Paul B. GuestBook</title>
+</head>
+<body>
+
+    <!--
+    First and last name are required
+Email address is optional. But if the user provides one, it must contain an @ symbol and a dot (.)
+    Challenge:  Google how to use regular expressions in JavaScript to validate your email address
+If the user checks the mailing list checkbox, then email address is required
+LinkedIn address is optional. If one is provided, it must start with "http" and end with ".com"
+"How we met" is required.
+Make sure that any validation errors appear inline, near the relevant form fields. Do not use alerts.
+
+When the form data is valid, direct the user to a "Thank you" page.
+
+    -->
+
+
+
+    <div class="container" id="main">
+        <div class="jumbotron">
+            <h1>Welcome to Paul's Guestbook!</h1>
+        </div>
+    </div>
+
+    <nav>
+        <ul>
+            <li>
+                <a class="nav-link" href="index.html">Resume</a>
+            </li>
+            <li>
+                <a class="nav-link" href="adminPage.php">Admin Page</a>
+            </li>
+            <li>
+                <a class="nav-link" href="guestbook.html">Guestbook</a>
+            </li>
+            <li>
+                <a class="nav-link" href="https://github.com/PaulB-GreenRiv">GitHub</a>
+            </li>
+        </ul>
+    </nav>
+
+    <form action="confirm.php" method="post" id="bookForm">
+        <fieldset class="form-group border p-2">
+            <legend>Contact Info</legend>
+
+            <div class="row">
+                <!--Placeholder-->
+                <div class="col">
+                    <div class="form-group">
+                        <label for="fName" class="form-label">First Name *</label>
+                        <input type="text" class="form-control" placeholder="First Name" id="fName" name="fName">
+                        <span class="err" id="err_fname">Please enter your first name</span>
+                    </div>
+                </div>
+                <!--Placeholder-->
+                <div class="col">
+                    <div class="form-group">
+                        <label for="lName" class="form-label">Last Name: *</label>
+                        <input type="text" class="form-control" placeholder="Last Name" id="lName" name="lName">
+                        <span class="err" id="err_lname">Please enter your last name</span>
+                    </div>
+                </div>
+                <!--Placeholder-->
+                <div class="col">
+                    <div class="form-group">
+                        <label for="jTitle" class="form-label">Job Title</label>
+                        <input type="text" class="form-control" placeholder="Job Title" id="jTitle" name="jTitle">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <!--Placeholder-->
+                <div class="col">
+                    <div class="form-group">
+                        <label for="company" class="form-label">Company</label>
+                        <input type="text" class="form-control" placeholder="Company" id="company" name="company">
+                    </div>
+                </div>
+                <!--Placeholder-->
+                <div class="col">
+                    <div class="form-group">
+                        <label for="linkUrl" class="form-label">LinkedIn URL</label>
+                        <input type="text" class="form-control" placeholder="LinkedIn URL" id="linkUrl" name="linkUrl">
+                        <span class="err" id="err_link">Please enter a proper LinkedIn address (with an 'http' and a '.com')</span>
+                    </div>
+                </div>
+                <!--Placeholder-->
+                <div class="col">
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email Address</label>
+                        <input type="text" class="form-control" placeholder="Email Address" id="email" name="email">
+                        <span class="err" id="err_email">Please enter a proper email (with an '@' and a '.')</span>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+        <fieldset class="form-group border p-2">
+
+            <legend>How we met *</legend>
+            <span class="err" id="err_met">Please select how we met</span>
+
+            <div class="row">
+                <!--Placeholder-->
+                <div class="col">
+                    <div class="form-group">
+                        <select class="form-control" id="category" name="category">
+                            <option value="none">Choose</option>
+                            <option value="meetup">Meetup</option>
+                            <option value="fair">Job Fair</option>
+                            <option value="other">Other</option>
+                            <option value="strangerdanger">We haven't met</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row" id="otherCat">
+                <!--Placeholder-->
+                <div class="col">
+                    <div class="form-group">
+                        <label for="other" class="form-label">Other</label>
+                        <input type="text" class="form-control" placeholder="please specify" id="other" name="other">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <!--Placeholder-->
+                <div class="col">
+                    <div class="form-group">
+                        <label for="message" class="form-label">Message</label>
+                        <textarea name="message" id="message" placeholder="Say what you want!" class="form-control"></textarea>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+        <fieldset class="form-group border p-2">
+            <legend>Mailing List</legend>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label><input class="form-check-input" type="checkbox" value="Yes" name="Addme" id="Addme">
+                            Please add me to your mailing list!</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <label>Please choose an email format</label>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label><input type="radio" class="form-check-input" name="format" value="HTML">
+                        HTML</label>
+                        <label><input type="radio" class="form-check-input" name="format" value="Text">
+                        Text</label>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+
+        <div class="col-12">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+
+
+    </form>
+
+    <script src="guestbook.js"></script>
+</body>
+</html>
